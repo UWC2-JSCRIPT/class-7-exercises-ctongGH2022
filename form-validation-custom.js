@@ -10,22 +10,22 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const firstName = document.getElementById('first-name');
+    const lastName = document.getElementById('last-name');
+    const min3 = 3;
 
     //function to check firstname, lastname
-    function checkName(e, id) {
-        const inputVal = document.getElementById(id);
+    function checkName(e, name) {
         let allValid = false;
-        inputVal.setCustomValidity('');
+        name.setCustomValidity('');
 
         // check lenght of name entered >= 3
-        if (inputVal.value.length < 3) {
-            inputVal.validity.valid = false;
-            inputVal.parentElement.classList.add("invalid");
-            inputVal.setCustomValidity(`you entered ${inputVal.value.length} chars, name must be 3 chars or more`);
-            //inputVal.reportValidity();
+        if (name.value.length < 3) {
+            name.validity.valid = false;
+            name.parentElement.classList.add("invalid");
+            name.setCustomValidity(`you entered ${name.value.length} chars, ${name.name} must be ${min3} chars or more`);
         } else {
-            inputVal.validity.valid = true;
-            inputVal.parentElement.classList.remove("invalid");
+            name.validity.valid = true;
+            name.parentElement.classList.remove("invalid");
             allValid = true;
         }
         if (!allValid) {
@@ -35,32 +35,26 @@ document.addEventListener("DOMContentLoaded", function () {
     } //end function
 
     //fucntion to check email
-    function checkEmail(e, id) {
-        const inputVal = document.getElementById(id);
+    function checkEmail(e) {
         let allValid = false;
-        inputVal.setCustomValidity('');
+        email.setCustomValidity('');
 
         const regEx = /\w+@\w+\.\w+/;
-        if (!regEx.test(inputVal.value)) {
-            inputVal.validity.valid = false;
-            inputVal.parentElement.classList.add("invalid");
-
-            inputVal.setCustomValidity(`you entered ${inputVal.value}. It is an invalid email.`);
-            //inputVal.reportValidity();
-
-            // if (inputVal.value == '') {
-            //     alert(`you must enter an email`);
-            // }
-            // else {
-            //     alert(`you entered ${inputVal.value}. It is an invalid email.`);
-            // }
+        if (!regEx.test(email.value)) {
+            email.validity.valid = false;
+            email.parentElement.classList.add("invalid");
+            if (email.value == '') {
+                email.setCustomValidity(`you must enter an email`);
+            }
+            else {
+                email.setCustomValidity(`you entered '${email.value}'. You must enter a valid email in format '${regEx}'`);
+            }
         }
         else {
-            inputVal.validity.valid = true;
-            inputVal.parentElement.classList.remove("invalid");
+            email.validity.valid = true;
+            email.parentElement.classList.remove("invalid");
             allValid = true;
         }
-
         if (!allValid) {
             e.preventDefault();
             console.log(`Bad input.`);
@@ -70,16 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //call functions to check firstname, lastname and email when submit
     form.addEventListener('submit', (e) => {
         firstName.focus();
-        checkName(e, "first-name");
+        checkName(e, firstName);
         form.reportValidity();
-        checkName(e, "last-name");
+        checkName(e, lastName);
         form.reportValidity();
-        checkEmail(e, "email");
+        checkEmail(e);
         form.reportValidity();
     })
 }); //end js readiness
-
-
-
-
-
