@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (name.value.length < 3) {
             name.validity.valid = false;
             name.parentElement.classList.add("invalid");
-            name.setCustomValidity(`you entered ${name.value.length} chars, ${name.name} must be ${min3} chars or more`);
+            name.setCustomValidity(`${name.name} must be ${min3} chars or more`);
         } else {
             name.validity.valid = true;
             name.parentElement.classList.remove("invalid");
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 email.setCustomValidity(`you must enter an email`);
             }
             else {
-                email.setCustomValidity(`you entered '${email.value}'. You must enter a valid email in format '${regEx}'`);
+                email.setCustomValidity(`You must enter a valid email in the format '${regEx}'`);
             }
         }
         else {
