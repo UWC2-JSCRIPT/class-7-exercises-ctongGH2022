@@ -18,6 +18,8 @@ describe('Test for the Soccer Game', () => {
                 expect(getTotalPoints('lllw')).toBe(3)
                 expect(getTotalPoints('lwd')).toBe(4)
                 expect(getTotalPoints('llldddw')).toBe(6)
+                expect(getTotalPoints('llldddw')).not.toBe(10)
+                expect(getTotalPoints('llldddw')).not.toBe(61)
             })
         }) //end test getTotalPoints Method
     }//end for loop
