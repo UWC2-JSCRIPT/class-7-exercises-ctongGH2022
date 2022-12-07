@@ -2,13 +2,17 @@
  * Cecilia Tong
  * Class 7 Exercise & Homework
  * Nov 29, 2022
- * CONSTRAINT VALIDATION
+ * CUSTOM VALIDATION
  */
-
+ 
 input:valid {
     border: 1px solid lightseagreen
 }
 
 input:invalid {
     border: 1px solid tomato;
+} 
+
+.invalid {
+    background-color: red;
 }

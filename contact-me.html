@@ -1,10 +1,87 @@
+<!--
+/**
+ * Cecilia Tong
+ * Class 7 Exercise & Homework
+ * Nov 29, 2022
+ * CONTACT-ME FORM
+ */ -->
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Contact Me</title>
-  </head>
 
-  <body>
-    <!-- TODO -->
-  </body>
+<head>
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="contact-me.css" />
+</head>
+
+<body>
+  <!-- TODO -->
+  <div class="container"><br>
+    <h1>Contact Me</h1>
+    <form novalidate id="connect-form" action="">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" class="form-control validate-input" type="text" name="name" placeholder="Your name.." />
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" class="form-control validate-input" type="email" name="email" placeholder="Your email.." />
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="contact-reason">Reason for contacting:</label>
+        <select class="form-control" name="contact-reason" id="contact-reason" required>
+          <option value="choose" selected="selected" disabled>
+            Choose one..
+          </option>
+          <option value="job-opportunity">Job opportunity</option>
+          <option value="talk-code">Talk code</option>
+        </select>
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group" name="job-title" id="job-title" style="display: none">
+        <label for="job-title">Job title:</label>
+        <input id="job-title" class="form-control validate-input" type="text" name="job-title" placeholder="Job title.." required/>
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group" name="url" id="url" style="display: none">
+        <label for="url">Company website:</label>
+        <input id="url" class="form-control validate-input" type="url" name="url" placeholder="https://example.com.." required/>
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group" name="coding-language" id="coding-language" style="display: none">
+        <label for="coding-language">Coding language:</label>
+        <select class="form-control" name="coding-language" id="coding-language" required>
+          <option value="" selected="selected" disabled>
+            Choose one..
+          </option>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+        </select>
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" class="form-control validate-input" name="message" rows="4" cols="10"
+          placeholder="Your message.." style="height:200px"></textarea>
+        <small class="error" aria-live="polite"></small>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>
+  <script src="contact-me.js"></script>
+</body>
+
 </html>
